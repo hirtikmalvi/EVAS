@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp"
+    tools:context=".RoleSelection">
+
+    <!-- Title -->
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="204dp"
+        android:layout_height="142dp"
+        android:src="@drawable/emergencyvehicle"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:contentDescription="Emergency Vehicle Logo"/>
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Emergency Vehicle Alert System"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- User Type Selection -->
+    <TextView
+        android:id="@+id/userTypeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select your user type:"
+        android:layout_marginTop="20dp"/>
+
+    <!-- User Buttons -->
+    <Button
+        android:id="@+id/adminButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/driverButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Driver"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/userButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "555863452923",
+    "project_id": "evaslifesaver",
+    "storage_bucket": "evaslifesaver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555863452923:android:50e1434c0157e3685cd45e",
+        "android_client_info": {
+          "package_name": "com.example.evas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuT93O2kj-gXZX53x8GEGKCb5ZEJKuPkQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

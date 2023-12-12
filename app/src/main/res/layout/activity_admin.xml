@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="top"
+    android:layout_gravity="top"
+    android:padding="16dp"
+    tools:context=".AdminActivity">
+
+    <!-- Admin Photo and Text -->
+
+    <LinearLayout
+        android:layout_width="122dp"
+        android:layout_height="175dp"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/adminImageView"
+            android:layout_width="92dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/admin" />
+
+        <TextView
+            android:id="@+id/adminTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:text="Admin"
+            android:textSize="21sp" />
+
+    </LinearLayout>
+
+    <!-- Buttons for Admin Features -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/userManagementAA"
+            android:layout_width="235dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="User Management" />
+
+        <Button
+            android:id="@+id/vehicleManagementAA"
+            android:layout_width="235dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Vehicle Management" />
+
+        <Button
+            android:id="@+id/trafficDataButton"
+            android:layout_width="235dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Traffic Data" />
+
+        <Button
+            android:id="@+id/requestFromDriverButton"
+            android:layout_width="235dp"
+            android:layout_height="wrap_content"
+            android:text="Request from Driver"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/sendAlertButton"
+            android:layout_width="235dp"
+            android:layout_height="wrap_content"
+            android:text="Give Permission"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/locationOfDriverButton"
+            android:layout_width="235dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Location of Driver" />
+
+        <TextView
+            android:id="@+id/logOutTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dp"
+            android:text="Log Out"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
