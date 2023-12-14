@@ -43,6 +43,8 @@
             android:name=".AdminLoginActivity"
             android:exported="false" />
         <activity
+
+
             android:name=".UserSignUpActivity"
             android:exported="false" />
         <activity
