@@ -8,9 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-import android.content.Intent;
 
-import com.example.evas.Models.Drivers;
 import com.example.evas.databinding.ActivityDriverLoginBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -64,16 +62,13 @@ public class DriverLoginActivity extends AppCompatActivity {
                 }
             }
         });
-//        if (mAuth.getCurrentUser()!=null){
-//            Intent intent = new Intent(DriverLoginActivity.this, DriverLoginActivity.class);
-//            startActivity(intent);
-//        }
-        binding.doNotHaveAccountButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DriverLoginActivity.this, DriverSignUpActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 }
+
+//binding.doNotHaveAccountButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(DriverLoginActivity.this, AddDriverAdminA.class);
+//                startActivity(intent);
+//            }
+//        });

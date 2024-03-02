@@ -18,7 +18,7 @@
         android:layout_height="175dp"
         android:orientation="vertical"
         android:layout_gravity="center_horizontal"
-        android:padding="16dp">
+        android:padding="10dp">
 
         <ImageView
             android:id="@+id/adminImageView"
@@ -43,31 +43,37 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:padding="10dp">
+        android:padding="1dp">
 
         <Button
             android:id="@+id/userManagementAA"
             android:layout_width="235dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:text="User Management" />
 
+        <Button
+            android:id="@+id/addDriverAA"
+            android:layout_width="235dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Add Driver" />
         <Button
             android:id="@+id/vehicleManagementAA"
             android:layout_width="235dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:text="Vehicle Management" />
 
         <Button
             android:id="@+id/trafficDataButton"
             android:layout_width="235dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:text="Traffic Data" />
 
         <Button
@@ -75,20 +81,20 @@
             android:layout_width="235dp"
             android:layout_height="wrap_content"
             android:text="Request from Driver"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="10dp" />
 
         <Button
             android:id="@+id/sendAlertButton"
             android:layout_width="235dp"
             android:layout_height="wrap_content"
             android:text="Give Permission"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="10dp" />
 
         <Button
             android:id="@+id/locationOfDriverButton"
             android:layout_width="235dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:text="Location of Driver" />
 
         <TextView
@@ -96,7 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="40dp"
             android:text="Log Out"
             android:textSize="18sp" />
 

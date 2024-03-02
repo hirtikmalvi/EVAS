@@ -30,8 +30,18 @@ public class AdminActivity extends AppCompatActivity {
         Button sendAlertButton = findViewById(R.id.sendAlertButton);
         Button locationOfDriverButton = findViewById(R.id.locationOfDriverButton);
         TextView logOutTextView = findViewById(R.id.logOutTextView);
+        Button addDriverButton = findViewById(R.id.addDriverAA);
 
         // Add click listeners for the buttons
+
+        Intent addDriver = new Intent(this, AddDriverAdminA.class);
+        addDriverButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(addDriver);
+            }
+        });
+
         trafficDataButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

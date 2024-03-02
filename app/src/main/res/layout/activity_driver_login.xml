@@ -58,15 +58,6 @@
             android:layout_marginTop="8dp" />
 
         <!-- Don't have an account? -->
-        <TextView
-            android:id="@+id/doNotHaveAccountButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginTop="10dp"
-            android:text="Don't have an account?"
-            android:textSize="13dp"
-            android:textStyle="normal|bold" />
 
         <!-- Sign Up Button -->
         <Button
