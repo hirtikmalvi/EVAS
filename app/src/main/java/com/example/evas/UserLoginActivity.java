@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -49,6 +50,10 @@ public class UserLoginActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             progressDialog.dismiss();
                             if (task.isSuccessful()){
+                                SharedPreferences pref = getSharedPreferences("userPref", MODE_PRIVATE);
+                                SharedPreferences.Editor editor= pref.edit();
+                                editor.putBoolean("flagUser", true);
+                                editor.apply();
                                 Intent intent = new Intent(UserLoginActivity.this, UserActivity.class);
                                 Toast.makeText(UserLoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
                                 startActivity(intent); //Starting the UserActivities

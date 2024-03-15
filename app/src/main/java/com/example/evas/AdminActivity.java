@@ -1,5 +1,6 @@
 package com.example.evas;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,15 +31,15 @@ public class AdminActivity extends AppCompatActivity {
         Button sendAlertButton = findViewById(R.id.sendAlertButton);
         Button locationOfDriverButton = findViewById(R.id.locationOfDriverButton);
         TextView logOutTextView = findViewById(R.id.logOutTextView);
-        Button addDriverButton = findViewById(R.id.addDriverAA);
+        Button driverManagementButton = findViewById(R.id.driverManagementAA);
 
         // Add click listeners for the buttons
 
-        Intent addDriver = new Intent(this, AddDriverAdminA.class);
-        addDriverButton.setOnClickListener(new View.OnClickListener() {
+        Intent driverManagement = new Intent(this, DriverManagement.class);
+        driverManagementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(addDriver);
+                startActivity(driverManagement);
             }
         });
 
@@ -74,8 +75,13 @@ public class AdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
+                SharedPreferences pref = getSharedPreferences("adminPref", MODE_PRIVATE);
+                SharedPreferences.Editor editor= pref.edit();
+                editor.putBoolean("flagAdmin", false);
+                editor.apply();
                 Toast.makeText(AdminActivity.this, "Logged Out", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(AdminActivity.this, RoleSelection.class);
+                finishAffinity();
+                Intent intent = new Intent(AdminActivity.this, AdminLoginActivity.class);
                 startActivity(intent);
             }
         });

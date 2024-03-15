@@ -3,6 +3,7 @@ package com.example.evas;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentProviderClient;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,40 @@ public class RoleSelection extends AppCompatActivity {
         Intent admin = new Intent(this, AdminLoginActivity.class);
         Intent driver = new Intent(this, DriverLoginActivity.class);
         Intent user = new Intent(this, UserLoginActivity.class);
+
+        {
+            SharedPreferences pref = getSharedPreferences("adminPref", MODE_PRIVATE);
+            Boolean check = pref.getBoolean("flagAdmin", false);
+
+            Intent adminOpenActivity;
+
+            if(check){
+                adminOpenActivity = new Intent(RoleSelection.this,  AdminActivity.class);
+                startActivity(adminOpenActivity);
+            }
+        }
+        {
+            SharedPreferences pref = getSharedPreferences("driverPref", MODE_PRIVATE);
+            Boolean check = pref.getBoolean("flagDriver", false);
+
+            Intent driverOpenActivity;
+
+            if(check){
+                driverOpenActivity = new Intent(RoleSelection.this,  DriverActivity.class);
+                startActivity(driverOpenActivity);
+            }
+        }
+        {
+            SharedPreferences pref = getSharedPreferences("userPref", MODE_PRIVATE);
+            Boolean check = pref.getBoolean("flagUser", false);
+
+            Intent userOpenActivity;
+
+            if(check){
+                userOpenActivity = new Intent(RoleSelection.this,  UserActivity.class);
+                startActivity(userOpenActivity);
+            }
+        }
 
         adminButton.setOnClickListener(new View.OnClickListener() {
             @Override

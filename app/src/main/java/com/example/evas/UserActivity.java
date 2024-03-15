@@ -3,6 +3,7 @@ package com.example.evas;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -30,8 +31,13 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
+                SharedPreferences pref = getSharedPreferences("userPref", MODE_PRIVATE);
+                SharedPreferences.Editor editor= pref.edit();
+                editor.putBoolean("flagUser", false);
+                editor.apply();
                 Toast.makeText(UserActivity.this, "Logged Out", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(UserActivity.this, RoleSelection.class);
+                finishAffinity();
+                Intent intent = new Intent(UserActivity.this, UserLoginActivity.class);
                 startActivity(intent);
             }
         });

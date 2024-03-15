@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -47,6 +48,10 @@ public class DriverLoginActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             progressDialog.dismiss();
                             if (task.isSuccessful()){
+                                SharedPreferences pref = getSharedPreferences("driverPref", MODE_PRIVATE);
+                                SharedPreferences.Editor editor= pref.edit();
+                                editor.putBoolean("flagDriver", true);
+                                editor.apply();
                                 Intent intent = new Intent(DriverLoginActivity.this, DriverActivity.class);
                                 Toast.makeText(DriverLoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
                                 startActivity(intent);

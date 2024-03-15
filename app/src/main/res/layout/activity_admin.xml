@@ -57,11 +57,11 @@
             android:text="User Management" />
 
         <Button
-            android:id="@+id/addDriverAA"
+            android:id="@+id/driverManagementAA"
             android:layout_width="235dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Add Driver" />
+            android:text="Driver Management" />
         <Button
             android:id="@+id/vehicleManagementAA"
             android:layout_width="235dp"

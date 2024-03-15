@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".DriverManagement">
+
+    <!-- Search EditText -->
+    <EditText
+        android:id="@+id/searchDriverEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search Driver"
+        android:inputType="text"
+        android:layout_marginTop="8dp" />
+
+    <!-- Search Button -->
+    <Button
+        android:id="@+id/searchDriverButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:layout_marginTop="8dp" />
+
+    <!-- Add Driver Button -->
+    <Button
+        android:id="@+id/addDriverButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Driver"
+        android:layout_marginTop="8dp" />
+
+</LinearLayout>

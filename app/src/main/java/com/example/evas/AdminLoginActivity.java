@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class AdminLoginActivity extends AppCompatActivity {
 
     ActivityAdminLoginBinding binding;
+    private SharedPreferences sharedPreferences;
     private FirebaseAuth mAuth;
     FirebaseDatabase database;
     ProgressDialog progressDialog;
@@ -49,6 +51,10 @@ public class AdminLoginActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             progressDialog.dismiss();
                             if (task.isSuccessful()){
+                                SharedPreferences pref = getSharedPreferences("adminPref", MODE_PRIVATE);
+                                SharedPreferences.Editor editor= pref.edit();
+                                editor.putBoolean("flagAdmin", true);
+                                editor.apply();
                                 Intent intent = new Intent(AdminLoginActivity.this, AdminActivity.class);
                                 Toast.makeText(AdminLoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
                                 startActivity(intent);

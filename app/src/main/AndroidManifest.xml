@@ -82,11 +82,13 @@
             android:name=".AdminActivity"
             android:exported="false" />
         <activity
+            android:name=".DriverManagement"
+            android:exported="false" />
+        <activity
             android:name=".RoleSelection"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
