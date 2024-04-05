@@ -56,6 +56,7 @@ public class AddDriverAdminA extends AppCompatActivity {
                                 String id = task.getResult().getUser().getUid();
                                 database.getReference().child("Drivers").child(id).setValue(users);
                                 Toast.makeText(AddDriverAdminA.this, "Sign Up successful", Toast.LENGTH_SHORT).show();
+                                finish();
                             }
                             else {
                                 Toast.makeText(AddDriverAdminA.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();

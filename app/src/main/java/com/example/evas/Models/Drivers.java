@@ -1,7 +1,7 @@
 package com.example.evas.Models;
 
 public class Drivers {
-    String profilePic;
+    String profilePic = "https://www.pngall.com/wp-content/uploads/12/Driver-PNG-Picture.png";
     String userName;
     String mail;
     String password;

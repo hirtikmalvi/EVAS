@@ -37,6 +37,7 @@ public class RoleSelection extends AppCompatActivity {
             if(check){
                 adminOpenActivity = new Intent(RoleSelection.this,  AdminActivity.class);
                 startActivity(adminOpenActivity);
+                finishAffinity();
             }
         }
         {
@@ -48,6 +49,7 @@ public class RoleSelection extends AppCompatActivity {
             if(check){
                 driverOpenActivity = new Intent(RoleSelection.this,  DriverActivity.class);
                 startActivity(driverOpenActivity);
+                finishAffinity();
             }
         }
         {
@@ -59,6 +61,7 @@ public class RoleSelection extends AppCompatActivity {
             if(check){
                 userOpenActivity = new Intent(RoleSelection.this,  UserActivity.class);
                 startActivity(userOpenActivity);
+                finishAffinity();
             }
         }
 
