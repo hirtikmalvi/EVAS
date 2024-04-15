@@ -5,6 +5,7 @@
     package="com.example.evas" >
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -36,7 +37,7 @@
             android:exported="false"
             android:label="@string/title_activity_maps" />
         <activity
-            android:name=".AskTOAdminDA"
+            android:name=".AskToAdminDA"
             android:exported="false" />
         <activity
             android:name=".TrafficDA"
@@ -79,7 +80,7 @@
             android:exported="false" />
         <activity
             android:name=".DriverActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".AdminActivity"
             android:exported="false" />
@@ -94,6 +95,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name=".MyFirebaseInstanceIDService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

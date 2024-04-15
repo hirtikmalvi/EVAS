@@ -14,8 +14,8 @@
     <!-- Driver Photo and Text -->
 
     <LinearLayout
-        android:layout_width="130dp"
-        android:layout_height="175dp"
+        android:layout_width="match_parent"
+        android:layout_height="185dp"
         android:orientation="vertical"
         android:layout_gravity="center_horizontal"
         android:padding="16dp">

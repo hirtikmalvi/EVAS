@@ -7,15 +7,18 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.evas.Notifications.Token;
 import com.example.evas.databinding.ActivityDriverLoginBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class DriverLoginActivity extends AppCompatActivity {
 
@@ -23,7 +26,6 @@ public class DriverLoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     FirebaseDatabase database;
     ProgressDialog progressDialog;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class DriverLoginActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
+
 
         progressDialog = new ProgressDialog(DriverLoginActivity.this);
         progressDialog.setTitle("Login");
@@ -52,6 +55,15 @@ public class DriverLoginActivity extends AppCompatActivity {
                                 SharedPreferences.Editor editor= pref.edit();
                                 editor.putBoolean("flagDriver", true);
                                 editor.apply();
+
+
+                                //Driver UserName Shared Preferences
+
+                                SharedPreferences pref1 = getSharedPreferences("driverUserNamePref", MODE_PRIVATE);
+                                SharedPreferences.Editor editor1 = pref1.edit();
+                                editor1.putString("driverUserName", binding.editUsername.getText().toString());
+                                editor1.apply();
+
                                 Intent intent = new Intent(DriverLoginActivity.this, DriverActivity.class);
                                 Toast.makeText(DriverLoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
                                 startActivity(intent);
