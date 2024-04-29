@@ -36,6 +36,7 @@ public class DriverActivity extends AppCompatActivity {
         TextView logOutTextView = findViewById(R.id.logOutTextView);
 
         Button askToAdminButton = findViewById(R.id.askToAdminButton);
+        Button gpsButton = findViewById(R.id.gpsButton);
 
         SharedPreferences pref1 = getSharedPreferences("driverUserNamePref", MODE_PRIVATE);
         String driverUserName = pref1.getString("driverUserName", "");
@@ -51,6 +52,14 @@ public class DriverActivity extends AppCompatActivity {
         });
 
         driverTextView.setText("Driver: " +user.getEmail());
+
+        gpsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DriverActivity.this, DriverMapsActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         logOutTextView.setOnClickListener(new View.OnClickListener() {

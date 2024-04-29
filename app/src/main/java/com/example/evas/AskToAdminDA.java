@@ -7,10 +7,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
+import androidx.recyclerview.widget.SnapHelper;
 
 import com.example.evas.Models.Admins;
 import com.example.evas.Models.Permissions;
@@ -20,12 +22,17 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingService;
 //import com.google.firebase.messaging.Message;
 //import com.google.firebase.messaging.Message;
 import com.google.firebase.messaging.RemoteMessage;
+
+import java.util.ArrayList;
 
 public class AskToAdminDA extends AppCompatActivity {
 
@@ -38,6 +45,12 @@ public class AskToAdminDA extends AppCompatActivity {
     RoleSelection roleSelection;
 
     String driverToken;
+    String adminID;
+    String adminToken = "";
+    Boolean isAccepted = false;
+
+    String driver = "", admin = "";
+
 
 
     FirebaseMessaging firebaseMessaging = FirebaseMessaging.getInstance();
@@ -61,53 +74,54 @@ public class AskToAdminDA extends AppCompatActivity {
                     }
                 });
 
-//        String driverToken1 = roleSelection.driverToken;
 
-        String adminToken = "adminToken";
-        String driver = "Driver", admin = "Admin";
-        Boolean isAccepted = false;
+        driver = user.getEmail();
 
+
+        //Getting Admin Token from Realtime DB
+        database.getReference().child("Admins").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        adminID = snapshot.getKey();
+                        Admins adminModel = snapshot.getValue(Admins.class);
+                        adminToken = adminModel.getAdminToken();
+                        admin = adminModel.getMail();
+                        Log.d("adminID", adminID);
+                        Log.d("ADMINTOKEN", adminToken);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         // Button click listener
         askToAdminButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get the message entered by the user
-                String messageInput = editTextMessageAtoAdmin.getText().toString();
 
-                Permissions permission = new Permissions(driverToken, adminToken, user.getEmail(), "admin@gmail.com", messageInput, isAccepted);
-                String id = user.getUid();
-                database.getReference().child("Permissions").child(id).setValue(permission);
+                if(!editTextMessageAtoAdmin.getText().toString().isEmpty()){
 
-                String registrationToken = "dFDQ8Qg9RouW6KCSWvcqV8:APA91bF7kw0NxDP0r7bZXCkdzZ5HuM8JBJcVOMXW2AHPLfuZ1Kx8LLMStTgI93KK-bzLyeHp_buT8eei5Ussw3lCrHEUbHtzPfvAhezrQ1xlTGC_jUUDR6c6NhvlHj2OEcJo3t3G7kBj";
-//                RemoteMessage.Builder builder = new RemoteMessage.Builder(registrationToken);
-//                builder.addData("message", "Admin you have a request from driver");
-////                builder.addData("message", "Admin you have a request from driver");
-//                RemoteMessage message = builder.build();
-//
-//                FirebaseMessaging.getInstance().send(message);
-////                System.out.println("Successfully sent message: " + response);
+                    // Get the message entered by the user
+                    String messageInput = editTextMessageAtoAdmin.getText().toString();
 
-//                if (token == null || token.isEmpty()) {
-//                    // Handle case where token is not available
-//                    return;
-//                }
+                    Permissions permission = new Permissions(driverToken, adminToken, driver, admin, messageInput, isAccepted);
+                    String id = user.getUid();
+                    Log.d("EMAIL", user.getEmail().split("@", 2)[0]);
+                    database.getReference().child("Permissions").child(id).setValue(permission);
+                    FCMSend.pushNotification(AskToAdminDA.this, adminToken, user.getEmail().split("@", 2)[0] + " is asking for the permission!", messageInput);
 
-//                Message message = Message.builder()
-//                        .putData("title", "Notification Title")
-//                        .putData("body", "Notification Message")
-//                        .setToken(token)
-//                        .build();
+                    finish();
+                }
+                else{
+                    Toast.makeText(AskToAdminDA.this, "Please Enter the message!", Toast.LENGTH_SHORT).show();
 
-//                RemoteMessage remoteMessage = new RemoteMessage.Builder(registrationToken)
-//                        .addData("title", "I AM A DRIVER")
-//                        .addData("body", "KINDLY ACCEPT MY REQUEST")
-//                        .build();
-//
-//                FirebaseMessaging.getInstance().notify();
-//                Log.d("MESSAGE SENT", "SENT SUCCESSFULLY");
-
-                finish();
+                }
             }
         });
     }

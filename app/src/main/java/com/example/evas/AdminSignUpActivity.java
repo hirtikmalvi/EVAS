@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class AdminSignUpActivity extends AppCompatActivity {
 
@@ -23,6 +25,8 @@ public class AdminSignUpActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     FirebaseDatabase database;
     ProgressDialog progressDialog;
+
+    String adminToken;
 
 
     @Override
@@ -48,6 +52,7 @@ public class AdminSignUpActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             progressDialog.dismiss();
                             if (task.isSuccessful()){
+
                                 Admins users = new Admins(binding.usernameEditText.getText().toString(),binding.passwordEditText.getText().toString(),binding.keyEditText.getText().toString());
                                 String id = task.getResult().getUser().getUid();
                                 database.getReference().child("Admins").child(id).setValue(users);

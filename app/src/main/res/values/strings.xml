@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">EVAS</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="ok">1</string>
+    <string name="cancel">0</string>
+    <string name="Accept">Accept</string>
+    <string name="Reject">Reject</string>
+    <string name="ACCEPT">ACCEPT</string>
+    <string name="REJECT">REJECT</string>
+    <string name="title_activity_driver_maps">DriverMapsActivity</string>
+    <string name="google_maps_key" translatable="false">AIzaSyDUU-v1vwnd8RIsfKbkTd0_9yN-RuoJawE</string>
+    <string name="title_activity_user_maps">UserMapsActivity</string>
 </resources>

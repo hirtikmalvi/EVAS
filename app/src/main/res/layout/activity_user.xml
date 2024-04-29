@@ -56,10 +56,10 @@
             android:text="Notifications" />
 
         <Button
-            android:id="@+id/locationOnOffButton"
+            android:id="@+id/locationButton"
             android:layout_width="235dp"
             android:layout_height="wrap_content"
-            android:text="Location On/Off"
+            android:text="Location"
             android:layout_marginTop="16dp" />
 
         <Button

@@ -38,8 +38,8 @@ public class MyFirebaseInstanceIDService extends FirebaseMessagingService {
                 .setContentTitle(title)
                 .setContentText(msg)
                 .setSound(Uri.parse("com.example.evas" + "/" + R.raw.notification))
-                .setAutoCancel(true);
-
+                .setAutoCancel(true)
+                .setPriority(5);
         NotificationManagerCompat manager = NotificationManagerCompat.from(this);
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling

@@ -1,7 +1,16 @@
 package com.example.evas.Models;
 
 public class Admins {
-    String profilePic, userName, mail, password, key, status;
+    String profilePic;
+    String userName;
+    String mail;
+    String password;
+    String key;
+    String status;
+
+
+
+    String adminToken;
 
     public Admins(){
 
@@ -20,6 +29,13 @@ public class Admins {
         this.mail = mail;
         this.password = password;
         this.key = key;
+    }
+
+    public Admins(String mail, String password, String key, String adminToken) {
+        this.mail = mail;
+        this.password = password;
+        this.key = key;
+        this.adminToken = adminToken;
     }
 
     public String getProfilePic() {
@@ -68,5 +84,13 @@ public class Admins {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getAdminToken() {
+        return adminToken;
+    }
+
+    public void setAdminToken(String adminToken) {
+        this.adminToken = adminToken;
     }
 }

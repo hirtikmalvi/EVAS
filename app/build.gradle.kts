@@ -56,10 +56,18 @@ dependencies {
     implementation("com.google.firebase:firebase-database:20.3.1")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
 
+    //DEXTER
+    implementation("com.karumi:dexter:6.2.3")
+
+    //LOCATION
+    implementation("com.google.android.gms:play-services-location:21.2.0")
+
+
     //For Notifications
     implementation("com.squareup.retrofit2:retrofit:2.7.2")
     implementation("com.squareup.retrofit2:converter-gson:2.7.2")
     implementation("com.google.firebase:firebase-messaging:23.4.1")
+    implementation ("com.android.volley:volley:1.2.1")
 //    implementation("com.google.firebase:firebase-admin:8.0.0")
     //Upto This
 

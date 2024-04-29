@@ -1,6 +1,7 @@
 package com.example.evas;
 
 import androidx.fragment.app.FragmentActivity;
+
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -9,19 +10,19 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.example.evas.databinding.ActivityMapsBinding;
+import com.example.evas.databinding.ActivityMapsDaBinding;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivityDA extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-private ActivityMapsBinding binding;
+    private ActivityMapsDaBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-     binding = ActivityMapsBinding.inflate(getLayoutInflater());
-     setContentView(binding.getRoot());
+        binding = ActivityMapsDaBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()

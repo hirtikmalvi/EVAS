@@ -1,9 +1,10 @@
 package com.example.evas.Models;
+import com.google.firebase.database.PropertyName;
 
 public class Permissions {
 
     String senderToken, receiverToken, driver, admin, message;
-    Boolean isAccepted = false;
+    Boolean isAccepted;
 
     public Permissions(String senderToken, String receiverToken, String driver, String admin, String message, Boolean isAccepted) {
         this.senderToken = senderToken;
@@ -57,11 +58,13 @@ public class Permissions {
         this.message = message;
     }
 
-    public Boolean getAccepted() {
+    @PropertyName("isAccepted")
+    public Boolean getIsAccepted() {
         return isAccepted;
     }
 
-    public void setAccepted(Boolean accepted) {
-        isAccepted = accepted;
+    @PropertyName("isAccepted")
+    public void setIsAccepted(Boolean accepted) {
+        this.isAccepted = accepted;
     }
 }
