@@ -8,6 +8,6 @@
     <string name="ACCEPT">ACCEPT</string>
     <string name="REJECT">REJECT</string>
     <string name="title_activity_driver_maps">DriverMapsActivity</string>
-    <string name="google_maps_key" translatable="false"></string>
+    <string name="google_maps_key" translatable="false">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx</string>
     <string name="title_activity_user_maps">UserMapsActivity</string>
 </resources>
